@@ -1,0 +1,32 @@
+name: Build and Release QGIS Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'
+      - 'version_*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create clean plugin zip
+        run: |
+          mkdir build
+          cp -r qgs_service_conf build/qgs_service_conf
+          cd build
+          zip -r ../qgs_service_conf.zip qgs_service_conf
+
+      - name: Create GitHub Release and upload ZIP
+        uses: softprops/action-gh-release@v1
+        with:
+          files: qgs_service_conf.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
