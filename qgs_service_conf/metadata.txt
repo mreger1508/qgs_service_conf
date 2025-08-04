@@ -1,0 +1,10 @@
+[general]
+name=qgs_service_conf
+email=martin150897@gmail.com
+author=Martin Reger
+qgisMinimumVersion=3.0
+description=Tool to manipulate the .pg_service.conf-file
+about=Tool to manipulate the .pg_service.conf-file. You can edit, add, or delete services.
+version=0.0.1
+tracker=
+repository=
