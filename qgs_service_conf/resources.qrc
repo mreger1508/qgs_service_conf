@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/plugins/qgs_service_conf">
+    <file>icon.svg</file>
+  </qresource>
+</RCC>
